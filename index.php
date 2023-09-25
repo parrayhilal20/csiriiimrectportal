@@ -323,10 +323,10 @@
 					    </ul><!--//footer-menu-->
 				    </nav>
 			    </div><!--//app-sidepanel-footer-->
-	        </div><!--//sidepanel-inner-->
+	        </div><!--//sidepanel-inner-->	
 	    </div><!--//app-sidepanel-->
     </header><!--//app-header-->
-    <form action="applicantdata.php" method="post"></form>
+    <form action="applicationform.php" method="post" enctype='multipart/form-data'>
     <div class="app-wrapper">
 	    
 	    <div class="app-content pt-3 p-md-3 p-lg-4">
@@ -768,7 +768,7 @@
 		                <div class="app-card app-card-settings shadow-sm p-4">
 						    <div class="app-card-body">
 							    <div class="row justify-content-between">
-									<button type="submit" class="btn app-btn-primary btn-block theme-btn mx-auto">Submit</button>
+									<button type="submit" class="btn app-btn-primary btn-block">Submit</button>
 							    </div>
 								    
 						    </div><!--//app-card-body-->

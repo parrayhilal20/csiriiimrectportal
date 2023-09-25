@@ -1,4 +1,11 @@
-$mysqli=new mysqli('localhost','root','','csiriiimrectportal');
+
+<?php 
+$mysqli = new mysqli('localhost','root','','csiriiimrectportal');
+
+
+//Applicaiton Number
+
+$application_number = rand();
 
 //Advertisement Details
 
@@ -66,13 +73,14 @@ $file_loc = $_FILES['photograph']['tmp_name'];
 
 
 //Advertisement details
-INSERT INTO `advertisement_details` 
-              (`application_number`, `advertisement_number`,  `postapplied`,
+$sql1 = "INSERT INTO `advertisement_details` (`application_number`, `advertisement_number`,`postapplied`,
                `postname`, `trancsation_number_date`, `bank_and_branch`) 
               VALUES ($application_number, '$advertisement_number', '$postapplied',
-                     '$postname', '$trancsation_number_date', '$bank_and_branch'); 
+                     '$postname', '$trancsation_number_date', '$bank_and_branch')"; 
+$mysqli->query($sql1);
+
 //Personal Details
-INSERT INTO `personal_details` 
+$sql2 = "INSERT INTO `personal_details` 
               (`application_number`, `fullname`,  `father_husband_name`,
                `occupation`, `dob`, `years`, `months`, `days`, `gender`,
                 `place_of_birth`, `address_for_correspondence`, `city_and_pin`, 
@@ -81,30 +89,45 @@ INSERT INTO `personal_details`
               VALUES ($application_number, '$fullname', '$father_husband_name',
                      '$occupation', '$dob', '$years', '$months', '$days', '$gender', '$place_of_birth', 
                      '$address_for_correspondence', '$city_and_pin', '$telephone_number','$fax_email', '$state',
-                      '$permanent_address', '$domicile',, '$state_belong', '$category', '$minority_communities','$minimum_pay_scale'); 
+                      '$permanent_address', '$domicile', '$state_belong', '$category', '$minority_communities','$minimum_pay_scale')";
+$mysqli->query($sql2);                      
 
 //Educational Qualifications
 
               
 foreach ($exam as $key => $value) {
-$sql = "INSERT INTO `education_qualifications` 
-              (`application_number`, `exam`,  `duration`, `division`, `percentage`, `year`, `board`, `subjects`)
-              VALUES ('$application_number','".$exam[$key]."','".$exam[$key]."','".$exam[$key]."', '".$exam[$key]."', 
+$sql3 = "INSERT INTO `education_qualifications`  
+              (`application_number`, `exam`,  `duration`, `division`, `percentage`, `year_of_passing`, `board`, `subjects`)
+              VALUES ('$application_number','".$exam[$key]."','".$exam[$key]."','".$exam[$key]."','".$exam[$key]."', 
               '".$exam[$key]."','".$exam[$key]."','".$exam[$key]."')";
-
-       }
+       
+       $mysqli->query($sql3);  
+       
+}
                      
 //Employer Details
-INSERT INTO `employer_details` 
+$sql4 = "INSERT INTO `employer_details` 
               (`application_number`, `name_address_employer`, `post_held`,
                `pay_scale`, `date_from`, `date_to`, `nature_of_duties`) 
               VALUES ($application_number, '$name_address_employer', '$post_held',
-                     '$pay_scale', '$date_from', '$date_to', '$nature_of_duties')
+                     '$pay_scale', '$date_from', '$date_to', '$nature_of_duties')";
+
+       $mysqli->query($sql4);  
 
 //Photograph
-INSERT INTO `attachment_details` 
+$sql5 = "INSERT INTO `attachment_details` 
               (`application_number`, `photograph`) 
-              VALUES ($application_number, '$final_file')
+              VALUES ($application_number, '$final_file')";
+       
+       $mysqli->query($sql5);
+
+
+header("Location: .php");
+
+
+?>
+
+
 
 
 
