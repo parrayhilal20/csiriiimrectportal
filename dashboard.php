@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"> 
 <head>
-    <title>Portal - Bootstrap 5 Admin Dashboard Template For Developers</title>
+    <title>Dashboard</title>
     
     <!-- Meta -->
     <meta charset="utf-8">
@@ -145,8 +145,9 @@
 				        </div><!--//row-->
 				    </div><!--//app-card-header-->
 				    <div class="app-card-body p-4">
-					    <div class="notification-content">Please do click below button to view your submitted application! Submitted application is in PDF. 
+					    <div class="notification-content">
                             
+                            <span class="badge bg-success"> Dear Applicant Kindly Submit your application by Clicking on Application in Sidebar </span> or <a href="index.php"><span class="badge bg-info">Click here</span></a>
                         </div>
 				    </div><!--//app-card-body-->
 				    <div class="app-card-footer px-4 py-3">
